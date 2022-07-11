@@ -1,0 +1,255 @@
+@import url("https://fonts.googleapis.com/css2?family=Arima:wght@400;700&display=swap");
+
+$color_black: #222222;
+$color_gray: lighten($color_black, 40%);
+$color_white: lighten($color_black, 80%);
+$transition: 200ms all;
+
+@mixin mobile {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arima", cursive, monospace;
+}
+// HEADER & FOOTER TEMPLATE
+header,
+footer {
+  background-color: #222222;
+  height: 100px;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 1rem;
+  color: $color_white;
+  z-index: 1;
+  .app-icon {
+    width: 50px;
+  }
+  @include mobile() {
+    gap: 1rem;
+    height: 70px;
+  }
+}
+
+header {
+  top: 0;
+}
+
+.options {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  a {
+    text-decoration: none;
+    color: $color_gray;
+    transition: $transition;
+    &:hover {
+      color: $color_white;
+      text-decoration: underline;
+    }
+  }
+  @include mobile() {
+    gap: 0.75rem;
+  }
+}
+
+// MAIN, for INDEX AND OTHERS
+main {
+  width: 70%;
+  border: 1px solid $color_black;
+  border-radius: 10px;
+  padding: 3rem;
+  margin: 10rem auto;
+  text-align: center;
+  position: relative;
+  transition: $transition;
+  .emphasis {
+    font-weight: 900;
+    text-decoration: underline;
+    font-style: italic;
+    color: #1e1e4d;
+  }
+  @include mobile() {
+    width: 80%;
+  }
+}
+.index-main:hover {
+  box-shadow: #222222 10px 10px 0 0;
+  transform: translate(-10px, -10px);
+}
+
+// CREATE_NOTE PAGE
+.msg,
+.error {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px 10px 0 0;
+  padding: 1rem;
+  width: 100%;
+  color: fff;
+}
+.msg {
+  background-color: #adffa7;
+  border: 1px solid #228a1b;
+}
+.error {
+  background-color: #ca1b1b;
+  border: 1px solid #a14c4c;
+}
+.index-create {
+  h1 {
+    margin-top: 1rem;
+  }
+  form {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 50%;
+    height: 50px;
+    padding: 1rem;
+    transition: $transition;
+    border-radius: 0;
+    border: 1px solid $color_black;
+    &:focus,
+    &:hover {
+      width: 55%;
+      outline: 0;
+      border-radius: 10px;
+    }
+    @include mobile() {
+      width: 100%;
+    }
+  }
+  textarea {
+    height: 300px;
+    resize: vertical;
+    word-wrap: break-word;
+  }
+
+  label {
+    cursor: text;
+    text-decoration: underline;
+    font-style: italic;
+  }
+
+  input[type="submit"] {
+    border: 0;
+    background-color: $color_white;
+    color: $color_gray;
+    &:hover {
+      cursor: pointer;
+      background-color: $color_gray;
+      color: $color_white;
+    }
+  }
+}
+
+// NOTES PAGE
+.index-notes {
+  h1 {
+    margin: 1rem 0;
+  }
+  .notes {
+    display: grid;
+    grid-template: 1fr / 1fr 1fr 1fr;
+    @include mobile() {
+      grid-template: 1fr /1fr;
+    }
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .message_void {
+    position: absolute;
+    margin: 0 auto;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+}
+.note {
+  border: 1px solid $color_black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  h3 {
+    font-size: 2rem;
+    background-color: $color_gray;
+    padding: 1rem;
+    border-radius: 10px 10px 0 0;
+    color: $color_white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  h6 {
+    font-size: 1rem;
+  }
+  img {
+    width: 40px;
+    height: 40px;
+  }
+  span {
+    margin: 3rem 0;
+  }
+  .actions {
+    margin-bottom: 1rem;
+  }
+
+  .actions a {
+    background-color: $color_black;
+    color: $color_white;
+    padding: 0.6rem;
+    transition: $transition;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.2);
+      background-color: $color_gray;
+    }
+    &.del:hover {
+      background-color: #ce0000;
+    }
+  }
+}
+
+// FOOTER TEMPLATE
+footer {
+  gap: 0.4rem;
+  position: fixed;
+  bottom: 0;
+  align-self: center;
+  flex-direction: column;
+  height: 70px;
+}
+
+.social-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  a {
+    display: flex;
+    gap: 1rem;
+    color: $color_gray;
+    transition: $transition;
+    &:hover {
+      color: $color_white;
+    }
+  }
+}

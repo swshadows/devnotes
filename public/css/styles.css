@@ -1,0 +1,255 @@
+@import url("https://fonts.googleapis.com/css2?family=Arima:wght@400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arima", cursive, monospace;
+}
+
+header,
+footer {
+  background-color: #222222;
+  height: 100px;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 1rem;
+  color: #eeeeee;
+  z-index: 1;
+}
+header .app-icon,
+footer .app-icon {
+  width: 50px;
+}
+@media screen and (max-width: 768px) {
+  header,
+footer {
+    gap: 1rem;
+    height: 70px;
+  }
+}
+
+header {
+  top: 0;
+}
+
+.options {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+.options a {
+  text-decoration: none;
+  color: #888888;
+  transition: 200ms all;
+}
+.options a:hover {
+  color: #eeeeee;
+  text-decoration: underline;
+}
+@media screen and (max-width: 768px) {
+  .options {
+    gap: 0.75rem;
+  }
+}
+
+main {
+  width: 70%;
+  border: 1px solid #222222;
+  border-radius: 10px;
+  padding: 3rem;
+  margin: 10rem auto;
+  text-align: center;
+  position: relative;
+  transition: 200ms all;
+}
+main .emphasis {
+  font-weight: 900;
+  text-decoration: underline;
+  font-style: italic;
+  color: #1e1e4d;
+}
+@media screen and (max-width: 768px) {
+  main {
+    width: 80%;
+  }
+}
+
+.index-main:hover {
+  box-shadow: #222222 10px 10px 0 0;
+  transform: translate(-10px, -10px);
+}
+
+.msg,
+.error {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px 10px 0 0;
+  padding: 1rem;
+  width: 100%;
+  color: fff;
+}
+
+.msg {
+  background-color: #adffa7;
+  border: 1px solid #228a1b;
+}
+
+.error {
+  background-color: #ca1b1b;
+  border: 1px solid #a14c4c;
+}
+
+.index-create h1 {
+  margin-top: 1rem;
+}
+.index-create form {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.index-create input,
+.index-create select,
+.index-create textarea {
+  width: 50%;
+  height: 50px;
+  padding: 1rem;
+  transition: 200ms all;
+  border-radius: 0;
+  border: 1px solid #222222;
+}
+.index-create input:focus, .index-create input:hover,
+.index-create select:focus,
+.index-create select:hover,
+.index-create textarea:focus,
+.index-create textarea:hover {
+  width: 55%;
+  outline: 0;
+  border-radius: 10px;
+}
+@media screen and (max-width: 768px) {
+  .index-create input,
+.index-create select,
+.index-create textarea {
+    width: 100%;
+  }
+}
+.index-create textarea {
+  height: 300px;
+  resize: vertical;
+  word-wrap: break-word;
+}
+.index-create label {
+  cursor: text;
+  text-decoration: underline;
+  font-style: italic;
+}
+.index-create input[type=submit] {
+  border: 0;
+  background-color: #eeeeee;
+  color: #888888;
+}
+.index-create input[type=submit]:hover {
+  cursor: pointer;
+  background-color: #888888;
+  color: #eeeeee;
+}
+
+.index-notes h1 {
+  margin: 1rem 0;
+}
+.index-notes .notes {
+  display: grid;
+  grid-template: 1fr/1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .index-notes .notes {
+    grid-template: 1fr/1fr;
+  }
+}
+.index-notes .message_void {
+  position: absolute;
+  margin: 0 auto;
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+.note {
+  border: 1px solid #222222;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.note h3 {
+  font-size: 2rem;
+  background-color: #888888;
+  padding: 1rem;
+  border-radius: 10px 10px 0 0;
+  color: #eeeeee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.note h6 {
+  font-size: 1rem;
+}
+.note img {
+  width: 40px;
+  height: 40px;
+}
+.note span {
+  margin: 3rem 0;
+}
+.note .actions {
+  margin-bottom: 1rem;
+}
+.note .actions a {
+  background-color: #222222;
+  color: #eeeeee;
+  padding: 0.6rem;
+  transition: 200ms all;
+}
+.note .actions a:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  background-color: #888888;
+}
+.note .actions a.del:hover {
+  background-color: #ce0000;
+}
+
+footer {
+  gap: 0.4rem;
+  position: fixed;
+  bottom: 0;
+  align-self: center;
+  flex-direction: column;
+  height: 70px;
+}
+
+.social-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+.social-links a {
+  display: flex;
+  gap: 1rem;
+  color: #888888;
+  transition: 200ms all;
+}
+.social-links a:hover {
+  color: #eeeeee;
+}
+
+/*# sourceMappingURL=styles.css.map */
