@@ -1,6 +1,3 @@
-<?php
-require 'app/server/config.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 

@@ -11,6 +11,16 @@ $transition: 200ms all;
   }
 }
 
+@mixin link {
+  text-decoration: none;
+  color: $color_gray;
+  transition: $transition;
+  &:hover {
+    color: $color_white;
+    text-decoration: underline;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -43,20 +53,15 @@ header {
   top: 0;
 }
 
+a {
+  @include link();
+}
+
 .options {
   list-style: none;
   display: flex;
   align-items: center;
   gap: 3rem;
-  a {
-    text-decoration: none;
-    color: $color_gray;
-    transition: $transition;
-    &:hover {
-      color: $color_white;
-      text-decoration: underline;
-    }
-  }
   @include mobile() {
     gap: 0.75rem;
   }
@@ -127,11 +132,16 @@ main {
     transition: $transition;
     border-radius: 0;
     border: 1px solid $color_black;
+    background-color: lighten($color_gray, 25%);
     &:focus,
     &:hover {
-      width: 55%;
+      background-color: $color_white;
+      width: 75%;
       outline: 0;
-      border-radius: 10px;
+    }
+    option {
+      background-color: $color_black;
+      color: $color_white;
     }
     @include mobile() {
       width: 100%;
@@ -175,12 +185,13 @@ main {
     gap: 1rem;
     padding: 1rem;
   }
-  .message_void {
-    position: absolute;
-    margin: 0 auto;
-    transform: translateX(-50%);
-    left: 50%;
-  }
+}
+.message_void {
+  position: absolute;
+  margin: 0 auto;
+  transform: translateX(-50%);
+  left: 50%;
+  bottom: 10px;
 }
 .note {
   border: 1px solid $color_black;
@@ -213,11 +224,13 @@ main {
     margin-bottom: 1rem;
   }
 
-  .actions a {
+  .actions a,
+  .actions button {
     background-color: $color_black;
     color: $color_white;
     padding: 0.6rem;
     transition: $transition;
+    border: 0;
     &:hover {
       cursor: pointer;
       transform: scale(1.2);
@@ -225,6 +238,51 @@ main {
     }
     &.del:hover {
       background-color: #ce0000;
+    }
+  }
+}
+
+.modal-delete {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: #00000088;
+  place-items: center;
+  .modal-content {
+    width: 25%;
+    height: 200px;
+    padding: 1rem;
+    border-radius: 10px;
+    color: $color_white;
+    background-color: $color_black;
+    display: grid;
+    place-items: center;
+    gap: 1rem;
+    .del-modal {
+      height: 20px;
+      background-color: #ce0000;
+      color: $color_white;
+      padding: 0.2rem 1rem;
+      text-decoration: none;
+      &:hover {
+        background-color: #610000;
+      }
+    }
+  }
+  .cancel-modal {
+    height: 100%;
+    padding: 0.2rem 1rem;
+    background-color: $color_white;
+    color: $color_black;
+    cursor: pointer;
+    transition: $transition;
+    &:hover {
+      background-color: $color_gray;
+      color: $color_white;
     }
   }
 }

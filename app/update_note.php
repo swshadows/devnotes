@@ -2,47 +2,29 @@
 session_start();
 require_once 'db/pdo.php';
 require_once 'classes/NoteDAO.php';
+require_once 'utils/checkValidate.php';
+require_once 'utils/headTo.php';
+
+$title = validate_size_void(30, $_POST['title']);
+$body = validate_size_void(255, $_POST['body']);
+$lang = validate_void($_POST['lang']);
+$id = validate_void($_POST['id']);
+
+if (!$title) {
+    head_to('my_notes', ['type' => 'error', 'body' => 'Titulo inválido ou maior que 30 caracteres']);
+}
+if (!$body) {
+    head_to('my_notes', ['type' => 'error', 'body' => 'Corpo da anotação inválido ou maior que 255 caracteres']);
+}
+if (!$lang) {
+    head_to('my_notes', ['type' => 'error', 'body' => 'Linguagem inválida, tente novamente']);
+}
+if (!$id) {
+    head_to('my_notes', ['type' => 'error', 'body' => 'ID inválido, tente novamente']);
+}
 
 $noteDAO = new NoteDAO($pdo);
-
-if ($_POST['title'] != '' && strlen($_POST['title']) <= 30) {
-    $title = $_POST['title'];
-} else {
-    $_SESSION['error'] = 'Titulo vazio ou inválido! (Max 30 caracteres)';
-    headToPage();
-}
-
-if ($_POST['body'] != '' && strlen($_POST['body']) <= 255) {
-    $body = $_POST['body'];
-} else {
-    $_SESSION['error'] = 'Corpo da nota vazio ou inválido! (Máx 255 caracteres)';
-    headToPage();
-}
-
-if ($_POST['lang'] != '') {
-    $lang = $_POST['lang'];
-} else {
-    $_SESSION['error'] = 'Linguagem inválida';
-    headToPage();
-}
-
-if ($_POST['id'] != '') {
-    $id = $_POST['id'];
-} else {
-    $_SESSION['error'] = 'ID inválido';
-    headToPage();
-}
-
-
 $note = new Note($title, $body, $lang);
 $note->setId($id);
-
 $update = $noteDAO->update($note);
-$_SESSION['msg'] = "Nota #$id atualizada com sucesso!";
-
-headToPage();
-
-function headToPage() {
-    header('Location: /my_notes.php');
-    exit;
-}
+head_to('my_notes', ['type' => 'msg', 'body' => 'Nota atualizada com sucesso']);

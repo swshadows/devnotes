@@ -35,20 +35,21 @@ header {
   top: 0;
 }
 
+a {
+  text-decoration: none;
+  color: #888888;
+  transition: 200ms all;
+}
+a:hover {
+  color: #eeeeee;
+  text-decoration: underline;
+}
+
 .options {
   list-style: none;
   display: flex;
   align-items: center;
   gap: 3rem;
-}
-.options a {
-  text-decoration: none;
-  color: #888888;
-  transition: 200ms all;
-}
-.options a:hover {
-  color: #eeeeee;
-  text-decoration: underline;
 }
 @media screen and (max-width: 768px) {
   .options {
@@ -123,15 +124,22 @@ main .emphasis {
   transition: 200ms all;
   border-radius: 0;
   border: 1px solid #222222;
+  background-color: #c8c8c8;
 }
 .index-create input:focus, .index-create input:hover,
 .index-create select:focus,
 .index-create select:hover,
 .index-create textarea:focus,
 .index-create textarea:hover {
-  width: 55%;
+  background-color: #eeeeee;
+  width: 75%;
   outline: 0;
-  border-radius: 10px;
+}
+.index-create input option,
+.index-create select option,
+.index-create textarea option {
+  background-color: #222222;
+  color: #eeeeee;
 }
 @media screen and (max-width: 768px) {
   .index-create input,
@@ -175,11 +183,13 @@ main .emphasis {
     grid-template: 1fr/1fr;
   }
 }
-.index-notes .message_void {
+
+.message_void {
   position: absolute;
   margin: 0 auto;
   transform: translateX(-50%);
   left: 50%;
+  bottom: 10px;
 }
 
 .note {
@@ -213,19 +223,68 @@ main .emphasis {
 .note .actions {
   margin-bottom: 1rem;
 }
-.note .actions a {
+.note .actions a,
+.note .actions button {
   background-color: #222222;
   color: #eeeeee;
   padding: 0.6rem;
   transition: 200ms all;
+  border: 0;
 }
-.note .actions a:hover {
+.note .actions a:hover,
+.note .actions button:hover {
   cursor: pointer;
   transform: scale(1.2);
   background-color: #888888;
 }
-.note .actions a.del:hover {
+.note .actions a.del:hover,
+.note .actions button.del:hover {
   background-color: #ce0000;
+}
+
+.modal-delete {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5333333333);
+  place-items: center;
+}
+.modal-delete .modal-content {
+  width: 25%;
+  height: 200px;
+  padding: 1rem;
+  border-radius: 10px;
+  color: #eeeeee;
+  background-color: #222222;
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+}
+.modal-delete .modal-content .del-modal {
+  height: 20px;
+  background-color: #ce0000;
+  color: #eeeeee;
+  padding: 0.2rem 1rem;
+  text-decoration: none;
+}
+.modal-delete .modal-content .del-modal:hover {
+  background-color: #610000;
+}
+.modal-delete .cancel-modal {
+  height: 100%;
+  padding: 0.2rem 1rem;
+  background-color: #eeeeee;
+  color: #222222;
+  cursor: pointer;
+  transition: 200ms all;
+}
+.modal-delete .cancel-modal:hover {
+  background-color: #888888;
+  color: #eeeeee;
 }
 
 footer {

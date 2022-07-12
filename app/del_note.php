@@ -2,13 +2,16 @@
 session_start();
 require_once 'db/pdo.php';
 require_once 'classes/NoteDAO.php';
+require_once 'utils/checkValidate.php';
+require_once 'utils/headTo.php';
+
+$id = validate_void($_GET['id']);
+
+if (!$id) {
+    head_to('my_notes', ['type' => 'error', 'body' => 'Erro ao apagar nota, tente novamente']);
+}
+
 $noteDAO = new NoteDAO($pdo);
-
-$id = $_GET['id'];
-
+$id = (int) $_GET['id'];
 $noteDAO->delete($id);
-
-$_SESSION['msg'] = "Nota #$id apagada!";
-
-header('Location: /my_notes.php');
-exit;
+head_to('my_notes', ['type' => 'msg', 'body' => 'Nota apagada com sucesso']);
