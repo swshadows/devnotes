@@ -13,7 +13,7 @@ if (del) {
 cancel.addEventListener("click", closeModal);
 
 function showModal(e) {
-  const linkString = "app/del_note.php?id=";
+  const linkString = "forms/del_note?id=";
   const link = document.querySelector(".modal-content .del-modal");
   const { id } = e.currentTarget.dataset;
   modal.style.display = "grid";

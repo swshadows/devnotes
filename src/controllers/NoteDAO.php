@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Note.php';
+require_once __APP_ROOT__ . '/src/models/Note.php';
 
 class NoteDAO implements NoteDAOInterface {
     private PDO $connection;

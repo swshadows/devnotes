@@ -1,9 +1,9 @@
 <?php
 session_start();
-require_once 'db/pdo.php';
-require_once 'classes/NoteDAO.php';
-require_once 'utils/checkValidate.php';
-require_once 'utils/headTo.php';
+require_once __APP_SRC__ . '/database/pdo.php';
+require_once __APP_SRC__ . '/controllers/NoteDAO.php';
+require_once __APP_SRC__ . '/utils/checkValidate.php';
+require_once __APP_SRC__ . '/utils/headTo.php';
 
 $title = validate_size_void(30, $_POST['title']);
 $body = validate_size_void(255, $_POST['body']);

@@ -1,8 +1,8 @@
 <?php
 session_start();
-require_once 'app/templates/header.php';
-require_once 'app/db/pdo.php';
-require_once 'app/classes/NoteDAO.php';
+require_once 'templates/header.php';
+require_once __APP_SRC__ . '/database/pdo.php';
+require_once __APP_SRC__ . '/controllers/NoteDAO.php';
 $noteDAO = new NoteDAO($pdo);
 
 $notes = $noteDAO->findAll();
@@ -14,7 +14,7 @@ if (sizeof($notes) == 0) {
 }
 ?>
 <main class="index-notes">
-    <?php require_once 'app/components/msg.php'; ?>
+    <?php require_once 'components/msg.php'; ?>
     <h1>Minhas notas</h1>
     <div class="notes">
         <?php if (sizeof($notes) > 0) : ?>
@@ -25,7 +25,7 @@ if (sizeof($notes) == 0) {
                     <span><?= $note['body'] ?></span>
                     <div class="actions">
                         <a class="del" data-id="<?= $note['id'] ?>"><i class="fa-solid fa-trash-can"></i></a>
-                        <a href="edit_note.php?id=<?= $note['id'] ?>" class="edit"><i class="fa-solid fa-pencil"></i></a>
+                        <a href="edit_note?id=<?= $note['id'] ?>" class="edit"><i class="fa-solid fa-pencil"></i></a>
                     </div>
                 </div>
             <?php endforeach;  ?>
@@ -43,13 +43,13 @@ if (sizeof($notes) == 0) {
     <div class="modal-content">
         Deseja mesmo apagar a nota? Essa ação é irreversível
         <div>
-            <a href="app/del_note.php?id=" class="del-modal">Apagar</a>
+            <a href="forms/del_note?id=" class="del-modal">Apagar</a>
             <a class="cancel-modal">Cancelar</a>
         </div>
     </div>
 </div>
 
-<script src="/public/js/modalDelete.js"></script>
+<script src="/js/modalDelete.js"></script>
 <?php
-require_once 'app/templates/footer.php';
+require_once 'templates/footer.php';
 ?>
