@@ -23,6 +23,6 @@
     cd devnotes
   ```
 
-- Insira o banco de dados em [app/db/init.sql](app/db/init.sql)
-- Rode o script de inicialização do projeto com `bash app/scripts/run.sh`
+- Insira o banco de dados em [src/database/init.sql](src/database/init.sql)
+- Rode o script de inicialização do projeto com `bash run.sh`
 - Acesse o endereço http://localhost:3000 no navegador
