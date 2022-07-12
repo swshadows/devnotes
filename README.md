@@ -3,7 +3,7 @@
 > Uma aplicação de notas para desenvolvedores;
 
 <div align="center">
-    <img width=200 src="public/favicon.png">
+    <img width=200 src="public/assets/favicon.png">
 </div>
 
 ## Inicialização
