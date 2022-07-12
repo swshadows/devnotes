@@ -10,6 +10,6 @@ printf "Setting PHP server\n"
 
 if [ "$1" = "dev" ]; then
     printf "Setting PHP server alongside Sass compiler\n"
-   php -S localhost:3000 -t ./public &
-   sass --watch ./src/scss:./public/css;
+    php -S localhost:3000 -t ./public &
+    sass --watch ./src/scss:./public/css;
 fi
