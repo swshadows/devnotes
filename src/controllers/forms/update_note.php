@@ -10,6 +10,9 @@ $body = validate_size_void(255, $_POST['body']);
 $lang = validate_void($_POST['lang']);
 $id = validate_void($_POST['id']);
 
+if (!$id) {
+    head_to('my_notes', ['type' => 'error', 'body' => 'ID inválido, tente novamente']);
+}
 if (!$title) {
     head_to('my_notes', ['type' => 'error', 'body' => 'Titulo inválido ou maior que 30 caracteres']);
 }
@@ -18,9 +21,6 @@ if (!$body) {
 }
 if (!$lang) {
     head_to('my_notes', ['type' => 'error', 'body' => 'Linguagem inválida, tente novamente']);
-}
-if (!$id) {
-    head_to('my_notes', ['type' => 'error', 'body' => 'ID inválido, tente novamente']);
 }
 
 $noteDAO = new NoteDAO($pdo);
