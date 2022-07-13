@@ -1,0 +1,86 @@
+@import "vars";
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  min-height: 100%;
+  background-color: #00000088;
+  place-items: center;
+  .modal-content {
+    width: 25%;
+    height: fit-content;
+    padding: 1rem;
+    border-radius: 10px;
+    color: $color_white;
+    background-color: $color_black;
+    display: grid;
+    place-items: center;
+    gap: 1rem;
+    .del-modal {
+      height: 20px;
+      background-color: #ce0000;
+      color: $color_white;
+      padding: 0.2rem 1rem;
+      text-decoration: none;
+      &:hover {
+        background-color: #610000;
+      }
+    }
+  }
+  .cancel-modal {
+    height: 100%;
+    padding: 0.2rem 1rem;
+    background-color: $color_white;
+    color: $color_black;
+    border: 0;
+    cursor: pointer;
+    transition: $transition;
+    &:hover {
+      background-color: $color_gray;
+      color: $color_white;
+    }
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    width: 90%;
+    input {
+      width: 100%;
+      padding: 1rem;
+      outline: 0;
+      border: 0;
+    }
+    input[type="submit"] {
+      transition: $transition;
+      &:hover {
+        cursor: pointer;
+        background-color: $color_gray;
+        color: $color_white;
+      }
+    }
+  }
+}
+
+.msg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px 10px 0 0;
+  padding: 0.5rem;
+  width: 100%;
+  color: fff;
+  &.success {
+    background-color: #adffa7;
+    border: 1px solid #228a1b;
+  }
+  &.error {
+    background-color: #ca1b1b;
+    border: 1px solid #a14c4c;
+  }
+}

@@ -1,4 +1,89 @@
 @import url("https://fonts.googleapis.com/css2?family=Arima:wght@400;700&display=swap");
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  min-height: 100%;
+  background-color: rgba(0, 0, 0, 0.5333333333);
+  place-items: center;
+}
+.modal .modal-content {
+  width: 25%;
+  height: fit-content;
+  padding: 1rem;
+  border-radius: 10px;
+  color: #eeeeee;
+  background-color: #222222;
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+}
+.modal .modal-content .del-modal {
+  height: 20px;
+  background-color: #ce0000;
+  color: #eeeeee;
+  padding: 0.2rem 1rem;
+  text-decoration: none;
+}
+.modal .modal-content .del-modal:hover {
+  background-color: #610000;
+}
+.modal .cancel-modal {
+  height: 100%;
+  padding: 0.2rem 1rem;
+  background-color: #eeeeee;
+  color: #222222;
+  border: 0;
+  cursor: pointer;
+  transition: 200ms all;
+}
+.modal .cancel-modal:hover {
+  background-color: #888888;
+  color: #eeeeee;
+}
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  width: 90%;
+}
+.modal form input {
+  width: 100%;
+  padding: 1rem;
+  outline: 0;
+  border: 0;
+}
+.modal form input[type=submit] {
+  transition: 200ms all;
+}
+.modal form input[type=submit]:hover {
+  cursor: pointer;
+  background-color: #888888;
+  color: #eeeeee;
+}
+
+.msg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px 10px 0 0;
+  padding: 0.5rem;
+  width: 100%;
+  color: fff;
+}
+.msg.success {
+  background-color: #adffa7;
+  border: 1px solid #228a1b;
+}
+.msg.error {
+  background-color: #ca1b1b;
+  border: 1px solid #a14c4c;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -14,6 +99,7 @@ footer {
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 3rem;
   padding: 1rem;
   color: #eeeeee;
@@ -82,27 +168,6 @@ main .emphasis {
 .index-main:hover {
   box-shadow: #222222 10px 10px 0 0;
   transform: translate(-10px, -10px);
-}
-
-.msg,
-.error {
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 10px 10px 0 0;
-  padding: 1rem;
-  width: 100%;
-  color: fff;
-}
-
-.msg {
-  background-color: #adffa7;
-  border: 1px solid #228a1b;
-}
-
-.error {
-  background-color: #ca1b1b;
-  border: 1px solid #a14c4c;
 }
 
 .index-create h1 {
@@ -240,51 +305,6 @@ main .emphasis {
 .note .actions a.del:hover,
 .note .actions button.del:hover {
   background-color: #ce0000;
-}
-
-.modal-delete {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  width: 100%;
-  min-height: 100%;
-  background-color: rgba(0, 0, 0, 0.5333333333);
-  place-items: center;
-}
-.modal-delete .modal-content {
-  width: 25%;
-  height: 200px;
-  padding: 1rem;
-  border-radius: 10px;
-  color: #eeeeee;
-  background-color: #222222;
-  display: grid;
-  place-items: center;
-  gap: 1rem;
-}
-.modal-delete .modal-content .del-modal {
-  height: 20px;
-  background-color: #ce0000;
-  color: #eeeeee;
-  padding: 0.2rem 1rem;
-  text-decoration: none;
-}
-.modal-delete .modal-content .del-modal:hover {
-  background-color: #610000;
-}
-.modal-delete .cancel-modal {
-  height: 100%;
-  padding: 0.2rem 1rem;
-  background-color: #eeeeee;
-  color: #222222;
-  cursor: pointer;
-  transition: 200ms all;
-}
-.modal-delete .cancel-modal:hover {
-  background-color: #888888;
-  color: #eeeeee;
 }
 
 footer {

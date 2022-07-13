@@ -1,6 +1,6 @@
 const del = document.querySelectorAll(".del");
 const cancel = document.querySelector(".cancel-modal");
-const modal = document.querySelector(".modal-delete");
+const modal = document.querySelector(".modal");
 
 if (del) {
   del.forEach((btn) => {

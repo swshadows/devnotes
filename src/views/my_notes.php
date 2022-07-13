@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once 'templates/header.php';
 require_once __APP_SRC__ . '/database/pdo.php';
 require_once __APP_SRC__ . '/controllers/NoteDAO.php';
@@ -9,7 +8,7 @@ $notes = $noteDAO->findAll();
 if (sizeof($notes) == 0) {
     $message_void = [
         'title' => "Notas vazias",
-        'body' => "Você não possui nenhuma nota no momento, tente criar uma no link <span class='emphasis'><a href='/create_note.php'>Criar nova nota</a></span> aqui ou acima",
+        'body' => "Você não possui nenhuma nota no momento, tente criar uma no link <span class='emphasis'><a href='/create_note'>Criar nova nota</a></span> aqui ou acima",
     ];
 }
 ?>
@@ -39,7 +38,7 @@ if (sizeof($notes) == 0) {
     <?php endif; ?>
 </main>
 
-<div class="modal-delete">
+<div class="modal">
     <div class="modal-content">
         Deseja mesmo apagar a nota? Essa ação é irreversível
         <div>

@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once 'templates/header.php';
 ?>
 <main class="index-create">

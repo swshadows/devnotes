@@ -1,14 +1,9 @@
-<?php
-if (isset($_SESSION['msg'])) {
-    echo "<div class='msg'>";
-    echo $_SESSION['msg'];
+<?php if (isset($_SESSION['msg'])) : ?>
+    <?php
+    $msg = $_SESSION['msg'];
     unset($_SESSION['msg']);
-    echo "</div>";
-}
-
-if (isset($_SESSION['error'])) {
-    echo "<div class='error'>";
-    echo $_SESSION['error'];
-    unset($_SESSION['error']);
-    echo "</div>";
-}
+    ?>
+    <div class="msg <?= $msg['type'] ?>">
+        <?= $msg['body'] ?>
+    </div>
+<?php endif; ?>

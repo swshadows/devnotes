@@ -1,9 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Arima:wght@400;700&display=swap");
 
-$color_black: #222222;
-$color_gray: lighten($color_black, 40%);
-$color_white: lighten($color_black, 80%);
-$transition: 200ms all;
+@import "components";
+@import "vars";
 
 @mixin mobile {
   @media screen and (max-width: 768px) {
@@ -36,6 +34,7 @@ footer {
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 3rem;
   padding: 1rem;
   color: $color_white;
@@ -93,24 +92,6 @@ main {
 }
 
 // CREATE_NOTE PAGE
-.msg,
-.error {
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 10px 10px 0 0;
-  padding: 1rem;
-  width: 100%;
-  color: fff;
-}
-.msg {
-  background-color: #adffa7;
-  border: 1px solid #228a1b;
-}
-.error {
-  background-color: #ca1b1b;
-  border: 1px solid #a14c4c;
-}
 .index-create {
   h1 {
     margin-top: 1rem;
@@ -238,51 +219,6 @@ main {
     }
     &.del:hover {
       background-color: #ce0000;
-    }
-  }
-}
-
-.modal-delete {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  width: 100%;
-  min-height: 100%;
-  background-color: #00000088;
-  place-items: center;
-  .modal-content {
-    width: 25%;
-    height: 200px;
-    padding: 1rem;
-    border-radius: 10px;
-    color: $color_white;
-    background-color: $color_black;
-    display: grid;
-    place-items: center;
-    gap: 1rem;
-    .del-modal {
-      height: 20px;
-      background-color: #ce0000;
-      color: $color_white;
-      padding: 0.2rem 1rem;
-      text-decoration: none;
-      &:hover {
-        background-color: #610000;
-      }
-    }
-  }
-  .cancel-modal {
-    height: 100%;
-    padding: 0.2rem 1rem;
-    background-color: $color_white;
-    color: $color_black;
-    cursor: pointer;
-    transition: $transition;
-    &:hover {
-      background-color: $color_gray;
-      color: $color_white;
     }
   }
 }
