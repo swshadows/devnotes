@@ -11,7 +11,7 @@ $lang = validate_void($_POST['lang']);
 $id = validate_void($_POST['id']);
 
 if (!$id) {
-    head_to('/edit_note?id=' . $id, ['type' => 'error', 'body' => 'ID inválido, tente novamente']);
+    head_to('/my_notes', ['type' => 'error', 'body' => 'ID inválido, tente novamente']);
 }
 if (!$title) {
     head_to('/edit_note?id=' . $id, ['type' => 'error', 'body' => 'Titulo inválido ou maior que 30 caracteres']);
@@ -27,4 +27,4 @@ $noteDAO = new NoteDAO($pdo);
 $note = new Note($title, $body, $lang);
 $note->setId($id);
 $update = $noteDAO->update($note);
-head_to('/edit_note?id=' . $id, ['type' => 'success', 'body' => 'Nota atualizada com sucesso']);
+head_to('/my_notes', ['type' => 'success', 'body' => 'Nota atualizada com sucesso']);
